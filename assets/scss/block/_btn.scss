@@ -1,0 +1,14 @@
+.b-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 6px;
+  width: 100%;
+  &--green {
+    color: flexy-color(white);
+    background-color: flexy-color(green);
+  }
+}

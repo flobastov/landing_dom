@@ -1,0 +1,21 @@
+.b-modal {
+  background: none;
+  &__cl-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    top: 0;
+    right: 0;
+    font-size: 1rem;
+    line-height: 25px;
+    text-align: center;
+  }
+  @include flexy-breakpoint(large) {
+    &__cl-btn {
+      top: -25px;
+    }
+  }
+}

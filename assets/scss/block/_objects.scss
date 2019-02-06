@@ -1,0 +1,106 @@
+.b-objects {
+  overflow-x: hidden;
+}
+/* слайдер */
+.b-objects-slider {
+  position: relative;
+  max-width: 996px;
+  margin: 0 auto;
+  &__slider {
+
+  }
+  &__dots {
+    margin: 37px 0;
+    display: flex;
+    justify-content: center;
+    & .owl-dot {
+      max-width: 78px;
+      flex-basis: 78px;
+      margin: 0 4px;
+      display: block;
+      background-color: flexy-color(gray1);
+      height: 5px;
+      transition: .4s ease;
+      &.active {
+        background-color: flexy-color(green);
+      }
+    }
+  }
+  &__img {
+    height: 250px;
+    border-radius: 5px;
+    opacity: .5;
+    transition: .4s ease;
+  }
+  & .b-slider-arrow {
+    display: none;
+    background-color: transparent;
+    height: calc(100% - 42px);
+    &__prev {
+      left: 43px;
+    }
+    &__next {
+      right: 43px;
+    }
+  }
+  & .owl-stage-outer {
+    overflow: visible;
+  }
+  & .owl-item.active .b-objects-slider__img {
+    opacity: 1;
+  }
+  @include flexy-breakpoint(medium) {
+    &__img {
+      height: 457px;
+    }
+    & .b-slider-arrow {
+      display: flex;
+    }
+  }
+}
+/* форма */
+.b-objects-form {
+  &__title {
+    color: flexy-color(white);
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    & span {
+      color: flexy-color(green);
+    }
+  }
+  &__row {
+    display: flex;
+    margin: 0 -12px;
+    > * {
+      padding: 0 12px 12px;
+      max-width: 50%;
+      flex-basis: 50%;
+    }
+  }
+  & .b-form {
+    max-width: 630px;
+    margin: 0 auto;
+    &__policy {
+      opacity: 0.5;
+      color: flexy-color(white);
+      max-width: 298px;
+      margin: 0 auto;
+      & a {
+        color: flexy-color(white);
+      }
+    }
+  }
+  & .b-input {
+    &__field {
+      background-color: rgba(255,255,255,.25);
+      color: flexy-color(white);
+    }
+  }
+  & .b-input-submit {
+    &__field {
+      font-size: flexy-size(small);
+    }
+  }
+}

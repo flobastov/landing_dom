@@ -1,0 +1,14 @@
+stages:
+    - deploy
+
+
+deploy_staging:
+    image: max107/alpine-fabric3
+    stage: deploy
+    script:
+        - fab staging deploy
+    environment:
+        name: dev
+        url: http://xn----8sban5abkpwm
+    only:
+        - develop

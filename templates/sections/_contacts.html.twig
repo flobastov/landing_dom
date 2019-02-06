@@ -1,0 +1,49 @@
+<section class="b-contacts" id="contacts">
+
+    <div class="b-space"></div>
+    <div class="b-space b-visible_medium_up"></div>
+    <div class="b-space-s b-visible_large_up"></div>
+    <div class="b-space-s b-visible_xlarge_up"></div>
+
+    <div class="b-wrapper">
+        <div class="b-contacts__map">
+            <div id="map"></div>
+            <div class="b-contacts__overlay">
+                <div class="b-content-title b-content-title--green h2">Контакты</div>
+
+                <div class="b-space"></div>
+
+                <div class="b-content-title b-content-title--green h4">дом-каркас.рф</div>
+
+                <div class="b-space"></div>
+
+                <ul class="b-contacts__list">
+                    <li><i class="fas fa-map-marker-alt"></i>
+                        <div class="b-content-title h5">Адрес:</div>
+                        {{ settings.address.value }}</li>
+                    <li><i class="far fa-clock"></i>
+                        <div class="b-content-title h5">Часы работы:</div>
+                        Будние дни: 11.00–21.00<br>
+                        Выходные и праздничные дни: 12.00–20.00
+                    </li>
+                    <li><i class="fas fa-phone"></i>
+                        <div class="b-content-title h5">Телефон:</div>
+                        <a href="tel:{{ settings.phone.value | replace({'(': '', ')': '', '-': '', ' ': ''}) }}">
+                            {{ settings.phone.value }}</a><br>
+                        <a href="mailto:{{ settings.email.value }}">{{ settings.email.value }}</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="b-space"></div>
+        <div class="b-space b-visible_medium_up"></div>
+
+        <div class="b-contacts-footer">
+            <div class="b-contacts-footer__company">© 2001–2018 ООО «Дом-каркас.рф» Все права защищены.</div>
+            <a href="https://palax.info/" class="b-contacts-footer__palax">Разработка сайта — PALAX</a>
+        </div>
+
+        <div class="b-space"></div>
+        <div class="b-space b-visible_medium_up"></div>
+    </div>
+</section>

@@ -1,0 +1,54 @@
+.b-slider {
+  @extend .owl-carousel;
+  @extend .owl-theme;
+}
+/* Стрелки */
+.b-slider-arrow {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  width: 40px;
+  z-index: 2;
+  font-size: flexy-size(large);
+  color: flexy-color(white);
+  background-color: flexy-color(gray1);
+  &__next {
+    right: 0;
+  }
+  &__prev {
+    left: 0;
+  }
+}
+/* Точки */
+.b-slider-dots {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  & .owl-dot {
+    margin: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid flexy-color(white);
+    transition: .2s ease;
+    &.active {
+      background-color: flexy-color(white);
+    }
+  }
+}
+/* Навигация */
+.b-slider-thumb {
+  margin: 10px;
+  cursor: pointer;
+  opacity: .7;
+  transition: .2s ease;
+  &.active {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,94 @@
+<a href="#" class="b-modal__cl-btn" data-izimodal-close><i class="sprite sprite-icon-close"></i></a>
+<div class="b-project-modal__body">
+    <div class="b-row">
+        <div class="b-col b-col_small_12 b-col_large_7">
+            <div class="b-project-slider">
+                <div class="b-project-slider__hero b-bg"
+                     style="background-image: url({% path product.media, 'big' %})"></div>
+                <div class="b-project-slider__content">
+                    <a href="#" class="b-slider-arrow b-slider-arrow__prev" data-slider="#project-slider"><i
+                                class="sprite sprite-icon-arrow-left"></i></a>
+                    <div class="b-project-slider__slider b-slider" id="project-slider" data-delay="5000"
+                         data-speed="600">
+                        {% if product.gallery %}
+                            {% for img in product.gallery.galleryHasMedias %}
+                                <div class="b-project-slider__item">
+                                    <div class="b-project-slider__img b-bg" style="background-image: url('{% path img.media, 'big' %}')"></div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <a href="#" class="b-slider-arrow b-slider-arrow__next" data-slider="#project-slider"><i
+                                class="sprite sprite-icon-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="b-col b-col_small_12 b-col_large_5">
+            <div class="b-project-modal__content">
+                <div class="b-space"></div>
+
+                <div class="b-content-title h4">{{ product.name }}
+                </div>
+
+                <div class="b-space"></div>
+
+                <div class="b-row">
+                    <div class="b-col b-col_small_12 b-col_medium_8">
+                        {% set characters = [
+                            {title:'Площадь дома:',desc: product.square},
+                            {title:'Количество этажей:',desc: product.floors},
+                            {title:'Комплектация:',desc: product.equipment},
+                            {title:'Фундамент:',desc: product.foundation},
+                            {title:'Перекрытия:',desc: product.overlap},
+
+                        ] %}
+                        {% if product.roof %}
+                            {% set characters = characters|merge([{title:'Кровля:',desc: product.roof}]) %}
+                        {% endif %}
+                        {% if product.term %}
+                            {% set characters = characters|merge([{title:'Сроки постройки:',desc: product.term}]) %}
+                        {% endif %}
+                        {% if product.price %}
+                            {% set characters = characters|merge([{title:'Цена:',desc: product.price}]) %}
+                        {% endif %}
+                        {% for char in characters %}
+                            <div class="b-project-character">
+                                <div class="b-project-character__title">{{ char.title }}</div>
+                                <div class="b-project-character__desc h5">{{ char.desc }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="b-col b-col_small_12 b-col_medium_4">
+                        <div class="b-project-character">
+                            <div class="b-project-character__title">Габариты:</div>
+                            <div class="b-project-character__desc h3">{{ product.dimensions }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="b-space"></div>
+                <div class="b-space b-visible_medium_up"></div>
+
+                <div class="b-project-form">
+                    <form action="" class="b-form" onsubmit="ym(52052685, 'reachGoal', 'newlead'); return true;">
+                        <div class="b-project-form__title h4">
+                            {% if product.type is same as ('Проект') %}Подробнее о проекте{% else %}Заказать такой дом{% endif %}
+                        </div>
+                        <div class="b-space"></div>
+                        <div class="b-project-form__row">
+                            <div class="b-form__elem b-input">
+                                <input type="tel" name="phone" id="project-phone" class="b-input__field js-field">
+                                <label for="project-phone" class="b-input__label">Введите телефонный номер</label>
+                            </div>
+                            <div class="b-form__elem b-input-submit">
+                                <input type="submit" name="send" class="b-input-submit__field" value="Отправить">
+                                <input type="hidden" name="form_name"
+                                   value="{% if product.type is same as ('Проект') %}Подробнее о проекте{% else %}Заказать{% endif %} {{ product.name }}">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

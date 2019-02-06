@@ -1,0 +1,30 @@
+<div class="b-col b-col_small_12 b-col_medium_6{% if index == 1 %} b-col_large_7{% elseif index == 2 %} b-col_large_5{% else %} b-col_large_4{% endif %}">
+    <div class="b-project">
+        <div class="b-project__img b-bg"
+             style="background-image: url({% path project.media, 'big' %})"></div>
+        <div class="b-project__content">
+            <div class="b-project__title">{{ project.name }}
+            </div>
+            <div class="b-project__row">
+                <div class="b-project__specifications">
+                    {% set specifications = [
+                        {k:'Размер',v: project.dimensions},
+                        {k:'Этажность',v: project.floors}
+                    ] %}
+                    {% if project.term %}
+                        {% set specifications = specifications|merge([{k:'Срок:',v: project.term}]) %}
+                    {% endif %}
+                    {% for specification in specifications %}
+                        <div class="b-project-info">
+                            <div class="b-project-info__title">{{ specification.k }}</div>
+                            <div class="b-project-info__desc">{{ specification.v }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <a href="{{ path('show', {'id':project.id}) }}"
+                   class="b-info__btn b-project__btn b-btn b-btn--green">Подробнее</a>
+            </div>
+        </div>
+        <div class="b-project__badge">{{ project.square }}</div>
+    </div>
+</div>

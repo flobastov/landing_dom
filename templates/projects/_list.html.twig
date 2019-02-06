@@ -1,0 +1,119 @@
+<section class="b-projects" id="projects">
+
+    <div class="b-space"></div>
+    <div class="b-space b-visible_medium_up"></div>
+    <div class="b-space-s b-visible_large_up"></div>
+
+    <div class="b-wrapper">
+        <div class="b-content-title b-content-title--green h2">Проекты домов</div>
+
+        <div class="b-space"></div>
+        <div class="b-space-s b-visible_medium_up"></div>
+
+        {#<div class="b-row">#}
+            {#<div class="b-col b-col_small_12 b-col_medium_6 b-col_large_7">#}
+                {#<div class="b-project">#}
+                    {#<div class="b-project__img b-bg" style="background-image: url('./assets/images/home-1.jpg')"></div>#}
+                    {#<div class="b-project__content">#}
+                        {#<div class="b-project__title">Дом c двумя спальнями<br>#}
+                            {#и большой террасой</div>#}
+                        {#<div class="b-project__row">#}
+                            {#<div class="b-project__specifications">#}
+                                {#{% set specifications = [#}
+                                    {#{'title':'Размер','desc':'8x9 м'},#}
+                                    {#{'title':'Этажность','desc':'2'},#}
+                                    {#{'title':'Срок','desc':'1 мес'}#}
+                                {#] %}#}
+                                {#{% for specification in specifications %}#}
+                                {#<div class="b-project-info">#}
+                                    {#<div class="b-project-info__title">{{ specification.title }}</div>#}
+                                    {#<div class="b-project-info__desc">{{ specification.desc }}</div>#}
+                                {#</div>#}
+                                {#{% endfor %}#}
+                            {#</div>#}
+                            {#<a href="#"#}
+                               {#data-izimodal-open="#get-project"#}
+                               {#data-izimodal-transitionin="fadeInDown"#}
+                               {#class="b-project__btn b-btn b-btn--green">Подробнее</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="b-project__badge">222 м²</div>#}
+                {#</div>#}
+            {#</div>#}
+            {#<div class="b-col b-col_small_12 b-col_medium_6 b-col_large_5">#}
+                {#<div class="b-project">#}
+                    {#<div class="b-project__img b-bg" style="background-image: url('./assets/images/home-2.jpg')"></div>#}
+                    {#<div class="b-project__content">#}
+                        {#<div class="b-project__title">Дом c двумя спальнями<br>#}
+                            {#и большой террасой</div>#}
+                        {#<div class="b-project__row">#}
+                            {#<div class="b-project__specifications">#}
+                                {#{% set specifications = [#}
+                                    {#{'title':'Размер','desc':'8x9 м'},#}
+                                    {#{'title':'Этажность','desc':'2'},#}
+                                    {#{'title':'Срок','desc':'1 мес'}#}
+                                {#] %}#}
+                                {#{% for specification in specifications %}#}
+                                    {#<div class="b-project-info">#}
+                                        {#<div class="b-project-info__title">{{ specification.title }}</div>#}
+                                        {#<div class="b-project-info__desc">{{ specification.desc }}</div>#}
+                                    {#</div>#}
+                                {#{% endfor %}#}
+                            {#</div>#}
+                            {#<a href="#"#}
+                               {#data-izimodal-open="#get-project"#}
+                               {#data-izimodal-transitionin="fadeInDown"#}
+                               {#class="b-project__btn b-btn b-btn--green">Подробнее</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#<div class="b-project__badge">222 м²</div>#}
+                {#</div>#}
+            {#</div>#}
+            {#{% for col in [1,2,3] %}#}
+                {#<div class="b-col b-col_small_12 b-col_medium_6 b-col_large_4">#}
+                    {#<div class="b-project">#}
+                        {#<div class="b-project__img b-bg" style="background-image: url('./assets/images/home-3.jpg')"></div>#}
+                        {#<div class="b-project__content">#}
+                            {#<div class="b-project__title">Дом c двумя спальнями<br>#}
+                                {#и большой террасой</div>#}
+                            {#<div class="b-project__row">#}
+                                {#<div class="b-project__specifications">#}
+                                    {#{% set specifications = [#}
+                                        {#{'title':'Размер','desc':'12x15 м'},#}
+                                        {#{'title':'Этажность','desc':'2'},#}
+                                        {#{'title':'Срок','desc':'18 мес'}#}
+                                    {#] %}#}
+                                    {#{% for specification in specifications %}#}
+                                        {#<div class="b-project-info">#}
+                                            {#<div class="b-project-info__title">{{ specification.title }}</div>#}
+                                            {#<div class="b-project-info__desc">{{ specification.desc }}</div>#}
+                                        {#</div>#}
+                                    {#{% endfor %}#}
+                                {#</div>#}
+                                {#<a href="#"#}
+                                   {#data-izimodal-open="#get-project"#}
+                                   {#data-izimodal-transitionin="fadeInDown"#}
+                                   {#class="b-project__btn b-btn b-btn--green">Подробнее</a>#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="b-project__badge">222 м²</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#{% endfor %}#}
+        {#</div>#}
+
+        {% if projects | length > 0 %}
+        <div class="b-row projects-wrapper">
+            {% for project in projects %}
+                {% include 'projects/_project.html.twig' with {'project':project, 'index':loop.index} %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="b-space"></div>
+        <div class="b-space-s b-visible_medium_up"></div>
+        {% if projects | length >= 5 %}
+            <a href="{{ path('projects/more', {'page': 2}) }}" class="b-projects-more__btn b-projects__btn b-btn b-btn--green">Показать больше проектов</a>
+        {% endif %}
+    </div>
+</section>

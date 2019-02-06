@@ -1,0 +1,32 @@
+.b-content {
+  transition: .4s ease-out;
+  &-title {
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 1.2;
+    &--center {
+      text-align: center;
+    }
+    &--right {
+      text-align: right;
+    }
+    &--justify {
+      text-align: justify;
+    }
+    &--light {
+      font-weight: 300;
+    }
+    &--green {
+      color: flexy-color(green);
+    }
+  }
+  &-desc {
+    & p {
+      margin-bottom: 18px;
+    }
+    & ul, & ol {}
+    & ul {}
+    & ol {}
+    & a {}
+  }
+}

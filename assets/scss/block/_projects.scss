@@ -1,0 +1,189 @@
+.b-projects {
+  &__btn {
+    max-width: 288px;
+    min-height: 59px;
+    border-radius: 5px;
+    margin: 0 auto;
+    font-size: flexy-size(small);
+  }
+}
+/* проект дома */
+.b-project {
+  background-color: flexy-color(gray1);
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 24px;
+  height: calc(100% - 24px);
+  &__img {
+    height: 296px;
+    border-radius: 5px;
+  }
+  &__content {
+    padding: 24px 16px 4px 16px;
+  }
+  &__title {
+    font: {
+      size: flexy-size(medium);
+      weight: 800;
+    }
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+  &__specifications {
+    display: flex;
+    margin: 0 -6px;
+    margin-right: 12px;
+  }
+  &__btn {
+    max-width: 137px;
+    height: 59px;
+    margin-bottom: 12px;
+    font-size: flexy-size(small);
+  }
+  &__badge {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    padding: 15px;
+    line-height: 1;
+    font-size: flexy-size(small);
+    text-transform: uppercase;
+    color: flexy-color(green);
+    background-color: flexy-color(white);
+    border-radius: 5px 0 0 5px;
+  }
+  @include flexy-breakpoint(medium) {
+    &__specifications {
+      max-width: 300px;
+      flex: 1 0 auto;
+      justify-content: space-between;
+    }
+  }
+  @include flexy-breakpoint(xlarge) {
+    &__row {
+      flex-wrap: nowrap;
+    }
+  }
+}
+/* Спецификация */
+.b-project-info {
+  padding: 0 6px 12px;
+  &__title {
+    color: flexy-color(gray);
+    font-size: flexy-size(small);
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  &__desc {
+    border-radius: 5px;
+    background-color: flexy-color(gray2);
+    line-height: 1;
+    padding: 14px 6px;
+    color: flexy-color(green);
+    font-weight: bold;
+    text-align: center;
+  }
+}
+/* Модальное окно */
+.b-project-modal {
+  max-width: 1200px;
+  &__body {
+    background-color: flexy-color(gray1);
+    border-radius: 5px;
+  }
+  &__content {
+    padding: 0 12px 12px;
+  }
+  @include flexy-breakpoint(large) {
+    &__content {
+      padding: 0 27px 12px 12px;
+    }
+  }
+}
+/* слайдер */
+.b-project-slider {
+  &__hero {
+    border-radius: 5px;
+    height: 401px;
+    margin-bottom: 48px;
+    transition: .4s ease-in-out;
+  }
+  &__content {
+    position: relative;
+  }
+  &__item {
+    cursor: pointer;
+  }
+  &__img {
+    height: 80px;
+    border-radius: 5px;
+  }
+  @include flexy-breakpoint(medium) {
+    &__content {
+      margin: 0 35px;
+    }
+  }
+}
+/* характеристика */
+.b-project-character {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  &__title {
+    font-size: flexy-size(small);
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  &__desc {
+    border-radius: 5px;
+    background-color: flexy-color(gray2);
+    color: flexy-color(green);
+    font-weight: 800;
+    padding: 5px 9px;
+    margin-bottom: 10px;
+  }
+}
+/* форма */
+.b-project-form {
+  &__title {
+    line-height: 1;
+    color: rgba(0,0,0,.3);
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  &__row {
+    display: flex;
+    margin: 0 -10px;
+    max-width: 500px;
+    flex-wrap: wrap;
+  }
+  & .b-input {
+    max-width: 300px;
+    &__field {
+      border-color: rgba(0,0,0,.3);
+    }
+    &__label, &.is-active label, &__field:focus ~ label {
+      color: rgba(0,0,0,.3);
+    }
+  }
+  & .b-form {
+    &__elem {
+      padding: 0 10px;
+      margin: 5px 0;
+    }
+  }
+  & .b-input-submit {
+    max-width: 157px;
+    width: 100%;
+    &__field {
+      font-size: flexy-size(small);
+    }
+  }
+}

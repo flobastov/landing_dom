@@ -1,0 +1,62 @@
+<section class="b-objects" id="objects">
+    <div class="b-space"></div>
+    <div class="b-space b-visible_medium_up"></div>
+    <div class="b-space b-visible_large_up"></div>
+
+    <div class="b-wrapper">
+        <div class="b-content-title b-content-title--green h2">Построенные объекты</div>
+
+        <div class="b-space"></div>
+        <div class="b-space b-visible_medium_up"></div>
+
+        <div class="b-objects-slider">
+            <a href="#" class="b-slider-arrow b-slider-arrow__prev" data-slider="#objects-slider"><i class="sprite sprite-icon-arrow-left"></i></a>
+            <div class="b-slider b-objects-slider__slider" id="objects-slider" data-delay="5000" data-speed="600">
+                {% for object in objects %}
+                    <a href="{{ path('show', {'id':object.id}) }}" class="b-info__btn">
+                        <div class="b-objects-slider__img b-bg" style="background-image: url({% path object.media, 'big' %})"
+                             data-object-id="{{ object.id }}"></div>
+                    </a>
+                {% endfor %}
+            </div>
+            <a href="#" class="b-slider-arrow b-slider-arrow__next" data-slider="#objects-slider"><i class="sprite sprite-icon-arrow-right"></i></a>
+            <div class="b-objects-slider__dots"></div>
+        </div>
+    </div>
+    <div class="b-space"></div>
+    <div class="b-space b-visible_medium_up"></div>
+    <div class="b-space b-visible_large_up"></div>
+    {# form #}
+    <div class="b-objects-form b-bg" style="background-image: url({{ asset('./assets/images/hero-2.jpg') }})">
+        <div class="b-space"></div>
+        <div class="b-space b-visible_medium_up"></div>
+
+        <div class="b-wrapper">
+            <div class="b-objects-form__title h2">
+                Оставьте заявку и получите скидку <span>10%</span><br>
+                На фундамент дома
+            </div>
+
+            <div class="b-space"></div>
+
+            <form action="" class="b-form" onsubmit="ym(52052685, 'reachGoal', 'newlead'); return true;">
+                <div class="b-objects-form__row">
+                    <div class="b-form__elem b-input">
+                        <input type="tel" name="phone" id="objects-phone" class="b-input__field js-field">
+                        <label for="objects-phone" class="b-input__label">Телефон</label>
+                    </div>
+                    <div class="b-form__elem b-input-submit">
+                        <input type="submit" name="send" class="b-input-submit__field" value="Получить скидку">
+                        <input type="hidden" name="form_name" value="Получить скидку">
+                    </div>
+                </div>
+                <div class="b-form__policy">Передавая информацию сайтувы принимаете условия
+                    <a href="{{ asset('./uploads/policy.pdf') }}" target="_blank">Политики защиты персональной информации</a></div>
+            </form>
+        </div>
+
+        <div class="b-space"></div>
+        <div class="b-space b-visible_medium_up"></div>
+    </div>
+
+</section>

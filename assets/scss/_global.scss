@@ -1,0 +1,63 @@
+/* Заголовки */
+h1,.h1 {
+  @include adaptive-font(30, 48, 320, 992);
+}
+h2,.h2 {
+  @include adaptive-font(26, 31, 320, 992);
+}
+h3,.h3 {
+  font-size: flexy-size(large);
+}
+h4,.h4 {
+  font-size: flexy-size(medium);
+}
+h5,.h5 {
+  font-size: flexy-size(small);
+}
+h6,.h6 {
+  font-size: flexy-size(xsmall);
+}
+/* Отступы */
+.b-space {
+  height: 30px;
+  &-s {
+    height: 25px;
+  }
+}
+/* Изображения */
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+/* Главная страница */
+.b-main-page {
+  & .b-breadcrumb {
+    display: none;
+  }
+}
+/* Отключить прокрутку */
+.b-hidden {
+  overflow: hidden;
+}
+/* Ссылки, конпки, сабмиты */
+a, button, input[type="submit"] {
+  cursor: pointer;
+}
+/* Фон */
+.b-bg {
+  background: {
+    position: center;
+    size: cover;
+    repeat: no-repeat;
+  };
+}
+/* Горезонтальная линия */
+hr {
+  background: flexy-color(gray);
+  border: 0;
+  height: 1px;
+}
+
+body {
+  background-color: flexy-color(gray2);
+}

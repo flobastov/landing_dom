@@ -1,0 +1,227 @@
+.b-hero {
+  color: flexy-color(white);
+  position: relative;
+  &__row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__logo {
+    max-width: 209px;
+  }
+  &__contacts {
+    text-align: center;
+  }
+  &__phone {
+    color: flexy-color(gray2);
+    font: {
+      weight: 800;
+      size: flexy-size(large);
+    }
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  &__hours {
+    opacity: 0.5;
+    color: flexy-color(white);
+    font-size: flexy-size(xsmall);
+  }
+  &__title {
+    text-align: center;
+  }
+  @include flexy-breakpoint(medium) {
+    &__row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    &__contacts {
+      text-align: right;
+    }
+    &__title {
+      text-align: left;
+    }
+  }
+  @include flexy-breakpoint(medium) {
+    padding-bottom: 100px;
+  }
+  @include flexy-breakpoint(large) {
+    padding-bottom: 0;
+  }
+}
+/* меню */
+.b-hero-menu {
+  position: fixed;
+  top: 0;
+  right: -170px;
+  max-width: 170px;
+  background: flexy-color(white);
+  height: 100%;
+  padding: 12px;
+  transition: .4s ease-out;
+  &__link {
+    font-size: .875rem;
+    text-transform: uppercase;
+    padding: 0 0 12px;
+    font-weight: 800;
+    text-decoration: none;
+    line-height: 1.2;
+    display: block;
+    color: flexy-color(gray);
+    transition: .2s linear;
+    &.is-active {
+      color: flexy-color(green);
+    }
+  }
+  &.is-active {
+    right: 0;
+    & + .b-content {
+      margin-left: -170px;
+      margin-right: 170px;
+    }
+  }
+  &--mobile {
+    display: block;
+  }
+  @include flexy-breakpoint(medium) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -12px;
+    position: static;
+    max-width: none;
+    background: none;
+    height: auto;
+    padding: 0;
+    &--mobile {
+      display: none;
+    }
+    &__link {
+      color: flexy-color(white);
+      padding: 0 12px 12px;
+      font-weight: 400;
+    }
+  }
+}
+/* форма */
+.b-hero-form {
+  max-width: 384px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 5px;
+  background-color: rgba(220,220,220,.5);
+  & .b-form {
+    &__title, &__desc {
+      text-align: center;
+      color: flexy-color();
+      margin-bottom: 20px;
+    }
+    &__policy {
+      margin-top: 13px;
+    }
+  }
+  @include flexy-breakpoint(large) {
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+/* стрелка перехода к проектам */
+.b-hero-arrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 40px;
+  animation: bounceAlpha 2s ease-in-out 0s infinite;
+}
+/* конпка мобильного меню */
+.b-hero-burger {
+  position: fixed;
+  right: 0;
+  top: 50px;
+  background-color: flexy-color(white);
+  border-radius: 25px 0 0 25px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .4s ease-out;
+  box-shadow: -12px 0px 57px -16px rgba(0,0,0,0.29);
+  z-index: 99;
+  & .b-hamburger {
+    &__inner:after {
+      bottom: -8px;
+    }
+    &__inner:before {
+      top: -8px;
+    }
+  }
+  &.is-active {
+    right: 170px;
+  }
+  @include flexy-breakpoint(medium) {
+    display: none;
+  }
+}
+/* Преимущества */
+.b-hero-features {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+  justify-content: center;
+  @include flexy-breakpoint(medium) {
+    justify-content: space-between;
+    max-width: 638px;
+    flex-wrap: nowrap;
+  }
+  @include flexy-breakpoint(large) {
+    margin: 0 -25px;
+  }
+}
+.b-hero-feature-item {
+  padding: 0 12px 24px;
+  &__title {
+    border-radius: 5px;
+    background-color: flexy-color(gray2);
+    padding: 12px;
+    line-height: 1;
+    color: flexy-color(green);
+    font: {
+      size: flexy-size(large);
+      weight: 800;
+    }
+    margin-bottom: 12px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  &__desc {
+    color: flexy-color(gray2);
+    line-height: 1.2;
+    font-size: flexy-size(small);
+    & p {
+      font-weight: 800;
+    }
+  }
+  @include flexy-breakpoint(medium) {
+    &__title {
+      padding: 16px;
+      font: {
+        size: flexy-size(xlarge);
+      }
+      margin-bottom: 24px;
+    }
+    &__desc {
+      font-size: 1rem;
+    }
+  }
+  @include flexy-breakpoint(large) {
+    padding: 0 20px 30px;
+  }
+}
+
+@keyframes bounceAlpha {
+  0% {opacity: 1; transform: translateY(0px) translateX(-50%);}
+  25%{opacity: 0; transform:translateY(10px) translateX(-50%);}
+  26%{opacity: 0; transform:translateY(-10px) translateX(-50%);}
+  55% {opacity: 1; transform: translateY(0px) translateX(-50%);}
+}

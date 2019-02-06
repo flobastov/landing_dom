@@ -1,0 +1,138 @@
+<section class="b-about" id="about">
+
+    <div class="b-space"></div>
+    <div class="b-space b-visible_medium_up"></div>
+    <div class="b-space-s b-visible_large_up"></div>
+    <div class="b-space-s b-visible_xlarge_up"></div>
+
+    <div class="b-wrapper">
+        <div class="b-content-title b-content-title--green h2">О компании</div>
+
+        <div class="b-space"></div>
+        <div class="b-space b-visible_medium_up"></div>
+        {# about #}
+        <div class="b-block-grid b-block-grid_small_1 b-block-grid_large_2">
+            <div class="b-block-grid__item">
+                <picture class="b-about-picture">
+                    <img src="{{ asset('./assets/images/home-2.jpg') }}" class="b-about-picture__img" alt="home">
+                </picture>
+            </div>
+            <div class="b-block-grid__item">
+                <div class="b-content-desc">
+                    {{ content.about.body | raw }}
+                    {#<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin#}
+                        {#gravida dolor sit amet lacus accumsan et viverra justo commodo.</p>#}
+                    {#<p>Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes,#}
+                        {#nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis#}
+                        {#orci, sed rhoncus pronin sapien nunc accuan eget.</p>#}
+                    {#<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin#}
+                        {#gravida dolor sit amet lacus accumsan et viverra justo commodo.</p>#}
+                </div>
+
+                <div class="b-space"></div>
+
+                <div class="b-about__row">
+                    {% set features = [
+                        {'title':'147','desc':'построенных\nдомов'},
+                        {'title':'585','desc':'довольных\nклиентов'},
+                        {'title':'27','desc':'квалифицированных\nспециалистов'}
+                    ] %}
+                    {% for feature in features %}
+                        <div class="b-about-feature">
+                            <div class="b-about-feature__title">{{ feature.title }}</div>
+                            <div class="b-about-feature__desc">{{ feature.desc | striptags(true) | escape | nl2br }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="b-space"></div>
+        <div class="b-space b-visible_medium_up"></div>
+        <div class="b-space-s b-visible_large_up"></div>
+
+        <div class="b-content-title b-content-title--green h2">Наши преимущества</div>
+
+        <div class="b-space"></div>
+        <div class="b-space-s b-visible_medium_up"></div>
+
+        {# feature #}
+        <div class="b-block-grid b-block-grid_small_1 b-block-grid_medium_2 b-block-grid_large_3">
+            {% set items = [
+                {'icon':'24-hours-delivery','title':'Полный\nкомплекс услуг'},
+                {'icon':'badge-with-a-star','title':'Опыт в строительстве'},
+                {'icon':'like','title':'Надёжность'}
+            ] %}
+            {% for item in items %}
+            <div class="b-block-grid__item">
+                <div class="b-feature">
+                    <div class="b-feature__icon"><i class="sprite sprite-icon-{{ item.icon }}"></i></div>
+                    <div class="b-feature__title h4">{{ item.title | striptags(true) | escape | nl2br }}</div>
+                    <div class="b-feature__desc">
+                        <p>Архитектурная студия от компании создаёт индивидуальные проекты частных домов из. С XXXX
+                            года. создали более 147 проектов от эскиза до финальной реализации.</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="b-space"></div>
+        <div class="b-space b-visible_medium_up"></div>
+
+        <div class="b-content-title b-content-title--green h2">Работаем по всей россии</div>
+        {# map #}
+        <div class="b-about-map">
+            <img src="{{ asset('./assets/images/map.png') }}" alt="map">
+        </div>
+
+        <div class="b-space"></div>
+        <div class="b-space b-visible_medium_up"></div>
+        <div class="b-space-s b-visible_large_up"></div>
+    </div>
+
+    {# form #}
+    <div class="b-about-form b-bg" style="background-image: url({{ asset('./assets/images/hero-3.jpg') }})">
+        <div class="b-space"></div>
+        <div class="b-space b-visible_medium_up"></div>
+
+        <div class="b-wrapper">
+            <form action="" class="b-form" onsubmit="ym(52052685, 'reachGoal', 'newlead'); return true;">
+                <div class="b-form__title h2">Остались вопросы?</div>
+                <div class="b-form__desc">
+                    <p>Задайте их  нашим специалистам<br>
+                        и получите ответ в течении 15 мин.</p>
+                </div>
+
+                <div class="b-space"></div>
+
+                {# Errors #}
+                <div class="b-error">
+                    <div class="b-wrapper"></div>
+                </div>
+                {# Success #}
+                <div class="b-flashes">
+                    <div class="b-wrapper"></div>
+                </div>
+
+
+                <div class="b-form__elem b-input">
+                    <input type="tel" name="phone" id="about-phone" class="js-field b-input__field">
+                    <label for="about-phone" class="b-input__label">Телефон</label>
+                </div>
+                <div class="b-form__elem b-textarea">
+                    <textarea name="message" id="about-message" class="js-field b-textarea__field"></textarea>
+                    <label for="about-message" class="b-textarea__label">Ваш вопрос</label>
+                </div>
+                <div class="b-form__elem b-input-submit">
+                    <input type="submit" name="send" class="b-input-submit__field" value="Отправить вопрос">
+                    <input type="hidden" name="form_name" value="Отправить вопрос">
+                </div>
+                <div class="b-form__policy">Передавая информацию сайтувы принимаете условия
+                    <a href="{{ asset('./uploads/policy.pdf') }}" target="_blank">Политики защиты персональной информации</a></div>
+            </form>
+        </div>
+
+        <div class="b-space"></div>
+    </div>
+</section>

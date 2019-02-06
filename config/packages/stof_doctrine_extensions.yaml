@@ -1,0 +1,6 @@
+stof_doctrine_extensions:
+    default_locale: '%locale%' # pl
+    translation_fallback: true
+    orm:
+        default:
+            sluggable: true

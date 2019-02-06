@@ -1,0 +1,108 @@
+/*
+ Настройки Flexy-Framework
+   - цвета - [ m-color_opacity1 || flexy-color(opacity1) ]
+   - размеры - [ m-size m-size_xxlarge || _xxlarge || flexy-size(xxlarge) ]
+   - хлебные крошки - [ @include flexy-breakpoint(medium) {} ]
+   - шрифт по умолчанию
+   - сетка
+   - обертка
+*/
+
+$flexy-colors: map-merge(
+  $flexy-default-colors,
+  (
+          default: #000,
+          white: #fff,
+          green: #4adac4,
+          gray: #848484,
+          gray1: #dcdcdc,
+          gray2: #f5f5f5,
+          success: #00d8b3,
+          error: #d65849
+
+  )
+);
+
+$flexy-sizes: (
+        xxlarge: 3rem, //48
+        xlarge: 1.9375rem, //31
+        large: 1.25rem, //20
+        medium: 1.125rem, //18
+        small: .875rem, //14
+        xsmall: .75rem, //12
+);
+
+$flexy-breakpoints: (
+        small: 0,
+        medium: 769px,
+        large: 992px,
+        xlarge: 1224px,
+        xxlarge: 1600px
+) !default;
+
+$flexy-font: 'Open Sans', $flexy-default-font;
+
+$flexy-grid-columns: 12 !default;
+$flexy-grid-gutter: 12px !default;
+
+$flexy-grid-wrapper-max-width: 1224px !default;
+$flexy-grid-wrapper-min-width: auto !default;
+
+
+/* Настройки FontAwesome */
+
+$fa-font-path: '../fonts/FontAwesome' !default;
+
+/*
+  Настройки темы Owl Carousel
+    - цвета
+    - стрелки
+    - точки
+*/
+
+$color-base:			#869791 !default;
+$color-white:			#FFF !default;
+$color-gray:			#D6D6D6 !default;
+
+$nav-color: 			$color-white !default;
+$nav-color-hover:		$color-white !default;
+$nav-font-size: 		14px !default;
+$nav-rounded: 			3px !default;
+$nav-margin: 			5px !default;
+$nav-padding: 			4px 7px !default;
+$nav-background: 		$color-gray !default;
+$nav-background-hover:	$color-base !default;
+$nav-disabled-opacity: 	0.5 !default;
+
+$dot-width:				10px !default;
+$dot-height:			10px !default;
+$dot-rounded:			30px !default;
+$dot-margin: 			5px 7px !default;
+$dot-background:		$color-gray !default;
+$dot-background-active:	$color-base !default;
+
+
+/*
+ Настройки Hamburger
+    - оформление
+    - фильтр при наведении
+    - шаблон
+*/
+
+$hamburger-padding-x                       : 0 !default;
+$hamburger-padding-y                       : 0 !default;
+$hamburger-layer-width                     : 34px !default;
+$hamburger-layer-height                    : 4px !default;
+$hamburger-layer-spacing                   : 6px !default;
+$hamburger-layer-color                     : #4adac4 !default;
+$hamburger-layer-border-radius             : 4px !default;
+$hamburger-hover-opacity                   : 1 !default;
+$hamburger-hover-transition-duration       : 0.15s !default;
+$hamburger-hover-transition-timing-function: linear !default;
+
+$hamburger-hover-use-filter: false !default; //false - не использовать
+$hamburger-hover-filter    : opacity(100%) !default;
+
+$hamburger-types: (
+        arrowalt
+) !default;

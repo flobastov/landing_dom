@@ -1,0 +1,48 @@
+services:
+    admin.users:
+        class: App\Admin\UserAdmin
+        arguments: [~, App\Application\Sonata\UserBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'Пользователи' }
+        public: true
+
+    admin.page:
+        class: App\Admin\PageAdmin
+        arguments: [~, App\Entity\Page, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'Страницы' }
+        public: true
+
+    admin.page_block:
+        class: App\Admin\PageBlockAdmin
+        arguments: [~, App\Entity\PageBlock, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: 'Блоки' }
+        public: true
+
+    admin.form_data_request:
+            class: App\Admin\FormDataRequestAdmin
+            arguments: [~, App\Entity\FormDataRequest, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, label: 'Заявки' }
+            public: true
+
+    admin.product:
+            class: App\Admin\ProductAdmin
+            arguments: [~, App\Entity\Product, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, label: 'Продукты' }
+            public: true
+
+    admin.options:
+            class: App\Admin\OptionAdmin
+            arguments: [~, App\Entity\Setting, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, label: 'Опции' }
+            public: true
+
+
+
+
+
+

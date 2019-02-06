@@ -1,0 +1,108 @@
+sonata_admin:
+    show_mosaic_button: false
+    assets:
+        extra_javascripts:
+            # ...
+            - bundles/fosckeditor/ckeditor.js
+            - bundles/sonataformatter/vendor/markitup-markitup/markitup/jquery.markitup.js
+            - bundles/sonataformatter/markitup/sets/markdown/set.js
+            - bundles/sonataformatter/markitup/sets/html/set.js
+            - bundles/sonataformatter/markitup/sets/textile/set.js
+
+        extra_stylesheets:
+            # ...
+            - bundles/sonataformatter/markitup/skins/sonata/style.css
+            - bundles/sonataformatter/markitup/sets/markdown/style.css
+            - bundles/sonataformatter/markitup/sets/html/style.css
+            - bundles/sonataformatter/markitup/sets/textile/style.css
+    security:
+        handler: sonata.admin.security.handler.role
+
+        role_admin: ROLE_ADMIN
+        role_super_admin: ROLE_SUPER_ADMIN
+    title: 'Панель управления'
+    title_logo: /assets/images/admin/logo_palax.svg
+    dashboard:
+        blocks:
+            # display two dashboard blocks
+            - { position: right, type: sonata.timeline.block.timeline, settings: { context: SONATA_ADMIN, max_per_page: 25 }}
+            - { position: left,  type: sonata.admin.block.admin_list, settings: { groups: [production, content, blog, media, users, options] } }
+#            - { position: right, type: sonata.admin.block.admin_list, settings: { groups: [] } }
+        groups:
+
+            content:
+                label: 'Контент'
+                icon: '<i class="fa fa-wpforms"></i>'
+                items:
+#                    - admin.page
+                    - admin.page_block
+
+            form_data_request:
+                on_top: true
+                label: 'Заявки'
+                icon: '<i class="fa fa-envelope-o"></i>'
+                items:
+                    - admin.form_data_request
+
+            production:
+                label: 'Продукция'
+                icon: '<i class="fa fa-home"></i>'
+                items:
+                    - admin.product
+
+            users:
+                on_top: true
+                label: 'Пользователи'
+                icon: '<i class="fa fa-user"></i>'
+                items:
+                    - admin.users
+
+            media:
+                label: 'Медиа'
+                label_catalogue: SonataMediaBundle
+                icon: '<i class="fa fa-image"></i>'
+                items:
+#                    - sonata.media.admin.media
+                    - sonata.media.admin.gallery
+
+            options:
+                label: 'Настройки'
+                icon: '<i class="fa fa-cog"></i>'
+                items:
+                    - admin.options
+
+
+
+
+sonata_timeline:
+    manager_type:         orm
+    class:
+        timeline:         "%spy_timeline.class.timeline%"
+        action:           "%spy_timeline.class.action%"
+        component:        "%spy_timeline.class.component%"
+        action_component: "%spy_timeline.class.action_component%"
+
+sonata_block:
+    http_cache:
+        listener: true
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.timeline.block.timeline:
+#        sonata.user.block.menu:    # used to display the menu in profile pages
+#        sonata.user.block.account: # used to display menu option (login option)
+        sonata.admin.block.search_result:
+            contexts:   [admin]
+        sonata.block.service.text:
+        # MediaBundle's Blocks
+        sonata.media.block.media:
+        sonata.media.block.gallery:
+        sonata.media.block.feature_media:
+        sonata.user.block.account:
+            cache: sonata.page.cache.js_async
+            #cache: sonata.page.cache.esi
+            contexts: [user]
+        sonata.user.block.menu:
+            contexts: [user]
+#cmspalax
+#I2u5J8n6

@@ -1,0 +1,309 @@
+/* Variables */
+//elem
+$eMargin: 13px 0;
+//Input
+$iHeight: 59px;
+$iPadding: 12px;
+$iBorderWidth: 1px;
+$iBorder: $iBorderWidth solid flexy-color(white);
+$iBorderRadius: 5px;
+$iBackgroundColor: 0;
+$iFontSize: 14px;
+$iColor: flexy-color();
+$iLabelColor: flexy-color(white);
+//Radio, checkbox
+$rSize: 16px;
+$rBorder: $iBorder;
+$rPadding: 10px;
+$rFontSize: $iFontSize;
+$rColor: flexy-color(green);
+//Textarea
+$tPadding: $iPadding;
+$tHeight: 100px;
+
+/* Form Styles */
+.b-form {
+  * {
+    box-sizing: border-box;
+  }
+  &__title {
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+  &__desc {
+    font-size: flexy-size(small);
+    line-height: 1.2;
+  }
+  &__elem {
+    margin: $eMargin;
+  }
+  &__policy {
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.2;
+    & a {
+      color: flexy-color(white);
+      text-decoration: none;
+    }
+  }
+}
+
+.b-input, .b-textarea {
+  position: relative;
+  padding: 0;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  &:hover:not(:focus) {
+    box-shadow: none;
+  }
+  &__field {
+    width: 100%;
+    min-height: $iHeight;
+    padding: 0 $iPadding;
+    border: $iBorder;
+    border-radius: $iBorderRadius;
+    //background-color: $iBackgroundColor;
+    font-size: $iFontSize;
+    color: $iColor;
+    text-align: center;
+  }
+  &.is-active label,
+  &__field:focus ~ label {
+    color: $iLabelColor;
+    font-size: $iFontSize - 4;
+    font-weight: 300;
+    line-height: $iFontSize;
+  }
+  &__label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition: all .15s;
+    cursor: text;
+    font-size: $iFontSize;
+    font-weight: 300;
+    line-height: $iHeight;
+    color: $iLabelColor;
+    padding: 0 $iPadding;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.b-checkbox, .b-radio {
+  position: relative;
+  &__field {
+    opacity: 0;
+    position: absolute;
+    &:checked {
+      ~ .b-checkbox__label .b-checkbox__custom,
+      ~ .b-radio__label .b-radio__custom {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__label {
+    position: relative;
+    line-height: $rFontSize;
+    font-size: $rFontSize;
+    padding-left: $rPadding + $rSize;
+    padding-right: 0;
+    display: block;
+  }
+  &__custom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $rSize;
+    height: $rSize;
+    border: $rBorder;
+    transition: all .15s;
+    &:before {
+      content: '\f00c';
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      font-size: $rFontSize/2;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity .15s ease-in-out;
+      color: $rColor;
+    }
+  }
+}
+
+.b-radio {
+  &__custom {
+    border-radius: 50%;
+    &:before {
+      content: '';
+      width: 70%;
+      height: 70%;
+      border-radius: 50%;
+      background-color: $rColor;
+    }
+  }
+}
+
+.b-textarea {
+  &__field {
+    resize: none;
+    padding: $tPadding;
+    height: $tHeight;
+  }
+}
+
+.b-input-number {
+  & .b-input {
+    &__field {
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+      appearance: textfield;
+      padding-right: 24px;
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+      }
+    }
+    &__label {
+      padding-right: 24px;
+    }
+  }
+  &__controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &__btn {
+    display: block;
+    text-decoration: none;
+    width: 24px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 10;
+    color: $iColor;
+    & * {
+      line-height: 24px;
+    }
+  }
+  &__up:hover {
+    // animation: name duration timing-function delay iteration-count direction;
+    animation: arrowHoverUp .6s ease-in-out .2s 1;
+  }
+  &__down:hover {
+    animation: arrowHoverDown .6s ease-in-out .2s 1;
+  }
+}
+
+.b-input-search {
+  & input[type='search'] {
+    box-sizing: border-box;
+  }
+  & .b-input {
+    &__field {
+      padding-right: $iHeight;
+      &::-webkit-search-cancel-button{
+        -webkit-appearance: none;
+      }
+    }
+  }
+  &__btn, &__cl-btn {
+    position: absolute;
+    top: 0;
+    line-height: $iHeight;
+    width: $iHeight;
+    right: 0;
+    color: $iColor;
+  }
+  &__cl-btn {
+    right: $iHeight;
+    display: none;
+    text-align: center;
+    &.is-active {
+      display: block;
+    }
+  }
+}
+
+.b-file {
+  display: flex;
+  align-items: center;
+  &__name {
+    color: flexy-color(black);
+    transition: .2s ease-in-out;
+    &.is-active {
+      padding-right: 15px;
+    }
+  }
+  &__field {
+    opacity: 0;
+    width: .1px;
+    height: .1px;
+  }
+  &__label {
+    line-height: 34px;
+    height: 50px;
+    border-radius: 4px;
+    text-align: center;
+    padding: .5rem .9rem;
+    border: 1px solid flexy-color(code);
+    color: flexy-color(code);
+  }
+}
+
+.b-input-date {
+  & .b-input {
+    &__field, &__label {
+      padding-right: $iHeight;
+    }
+  }
+  &__icon {
+    cursor: pointer;
+    position: absolute;
+    height: $iHeight;
+    width: $iHeight;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.b-input-submit {
+  & input[type='submit'].b-input-submit__field {
+    min-height: $iHeight;
+    padding: $iPadding;
+    width: 100%;
+    border-radius: $iBorderRadius;
+    background-color: flexy-color(green);
+    color: $iLabelColor;
+    text-transform: uppercase;
+  }
+  &__field {
+    font-size: flexy-size(small);
+  }
+}
+@keyframes arrowHoverDown {
+  0% {opacity: 1; transform: translateY(0px) scale(1);}
+  25%{opacity: 0; transform:translateY(10px) scale(0.9);}
+  26%{opacity: 0; transform:translateY(-10px) scale(0.9);}
+  55% {opacity: 1; transform: translateY(0px) scale(1);}
+}
+@keyframes arrowHoverUp {
+  0% {opacity: 1; transform: translateY(0px) scale(1);}
+  25%{opacity: 0; transform:translateY(-10px) scale(0.9);}
+  26%{opacity: 0; transform:translateY(10px) scale(0.9);}
+  55% {opacity: 1; transform: translateY(0px) scale(1);}
+}

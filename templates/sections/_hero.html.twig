@@ -1,0 +1,123 @@
+<section class="b-hero b-bg" id="hero" style="background-image: url({{ asset('./assets/images/hero-1.jpg') }})">
+    {# burger #}
+    <div class="b-hamburger b-hero-burger" data-elem="#mob-menu">
+        <div class="b-hamburger__box">
+            <div class="b-hamburger__inner"></div>
+        </div>
+    </div>
+    <div class="b-wrapper">
+
+        <div class="b-space"></div>
+
+        <div class="b-hero__row">
+            <div class="b-hero__logo">
+                <img src="{{ asset('./assets/images/logo.png') }}" alt="logo">
+            </div>
+            <div class="b-hero__contacts">
+                <a href="tel:{{ settings.main_phone.value | replace({'(': '', ')': '', '-': '', ' ': ''}) }}" class="b-hero__phone">
+                    {{ settings.main_phone.value }}</a>
+                <div class="b-hero__hours">Пн - Вс с 10:00 до 19:00</div>
+            </div>
+        </div>
+
+        <div class="b-space"></div>
+        <div class="b-space b-visible_large_up"></div>
+
+        {# tablet-navigation #}
+        <div class="b-visible_medium_only">
+            <nav class="b-hero-menu">
+                <a href="#projects" class="b-hero-menu__link">ПРОЕКТЫ ДОМОВ</a>
+                <a href="#objects" class="b-hero-menu__link">ПОСТРОЕННЫЕ ОБЪЕКТЫ</a>
+                <a href="#about" class="b-hero-menu__link">О КОМПАНИИ</a>
+                <a href="#contacts" class="b-hero-menu__link">КОНТАКТЫ</a>
+            </nav>
+        </div>
+
+        <div class="b-space b-visible_medium_only"></div>
+
+        <div class="b-block-grid b-block-grid_small_1 b-block-grid_large_2">
+            <div class="b-block-grid__item">
+
+                <div class="b-content-title b-content-title--light b-hero__title h1">Строительство<br>
+                    каркасных<br>
+                    и фахверковых<br>
+                    домов</div>
+
+                <div class="b-space"></div>
+                <div class="b-space b-visible_large_up"></div>
+                <div class="b-space b-visible_large_up"></div>
+
+                <div class="b-hero-features">
+                    {% set features = [
+                        {'title':'10 лет','desc':'гарантии на\nвыполненные\nработы'},
+                        {'title':'Более 20','desc':'объектов сдано\nв эксплуатацию'},
+                        {'title':'5 лет','desc':'опыт\nстроительства'}
+                    ] %}
+                    {% for feature in features %}
+                    <div class="b-hero-feature-item">
+                        <div class="b-hero-feature-item__title">{{ feature.title }}</div>
+                        <div class="b-hero-feature-item__desc">
+                            <p>{{ feature.desc | striptags(true) | escape | nl2br }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="b-block-grid__item">
+                {# navigation #}
+                <div class="b-visible_large_up">
+                    <nav class="b-hero-menu">
+                        <a href="#projects" class="b-hero-menu__link">ПРОЕКТЫ ДОМОв</a>
+                        <a href="#objects" class="b-hero-menu__link">ПОСТРОЕННЫЕ ОБЪЕКТЫ</a>
+                        <a href="#about" class="b-hero-menu__link">О КОМПАНИИ</a>
+                        <a href="#contacts" class="b-hero-menu__link">КОНТАКТЫ</a>
+                    </nav>
+                </div>
+
+                <div class="b-space b-visible_large_up"></div>
+                <div class="b-space b-visible_large_up"></div>
+
+                {# form #}
+                <div class="b-hero-form">
+                    <form action="" class="b-form" onsubmit="ym(52052685, 'reachGoal', 'newlead'); return true;">
+                        <div class="b-form__title">Отправьте заявку<br>
+                            на расчет стоимости
+                        </div>
+                        <div class="b-form__desc">
+                            <p>Бесплатно подберем 5 вариантов<br>
+                                проектов по вашим параметрам</p>
+                        </div>
+                        {# Errors #}
+                        <div class="b-error">
+                            <div class="b-wrapper"></div>
+                        </div>
+                        {# Success #}
+                        <div class="b-flashes">
+                            <div class="b-wrapper"></div>
+                        </div>
+                        {% set elems = [
+                            {'type':'email','name':'email','label':'E-mail'},
+                            {'type':'tel','name':'phone','label':'Телефон'}
+                        ] %}
+                        {% for elem in elems %}
+                            <div class="b-form__elem b-input">
+                                <input type="{{ elem.type }}" name="{{ elem.name }}" id="hero-{{ elem.name }}" class="js-field b-input__field">
+                                <label for="hero-{{ elem.name }}" class="b-input__label">{{ elem.label }}</label>
+                            </div>
+                        {% endfor %}
+                        <div class="b-form__elem b-input-submit">
+                            <input type="submit" name="send" class="b-input-submit__field" value="Отправить заявку на расчет">
+                            <input type="hidden" name="form_name" value="Отправить заявку на расчет">
+                        </div>
+                        <div class="b-form__policy">Передавая информацию сайту вы принимаете условия
+                            <a href="{{ asset('./uploads/policy.pdf') }}" target="_blank">Политики защиты персональной информации</a></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {# arrow #}
+    <a href="#projects" class="b-hero-arrow b-visible_medium_up">
+        <i class="sprite sprite-icon-arrow-down"></i>
+    </a>
+</section>

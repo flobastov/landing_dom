@@ -1,0 +1,67 @@
+.b-contacts {
+  &__map {
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+  }
+  & #map {
+    height: 300px;
+  }
+  &__overlay {
+    background-color: rgba(255,255,255,.77);
+    padding: 40px;
+    height: 100%;
+  }
+  &__list {
+    list-style: none;
+    & li {
+      position: relative;
+      padding-left: 35px;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      font-size: flexy-size(small);
+      & i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: flexy-size(medium);
+      }
+      & a {
+        text-decoration: none;
+      }
+    }
+  }
+  @include flexy-breakpoint(medium) {
+    & #map {
+      height: 478px;
+    }
+    &__overlay {
+      padding: 70px 120px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      max-width: 50%;
+    }
+  }
+}
+/* подвал */
+.b-contacts-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+  > * {
+    padding: 0 12px 12px;
+    color: flexy-color(gray);
+  }
+  &__palax {
+    text-decoration: none;
+  }
+}
+/* ч/б фильтр для карты */
+[class*="ymaps-2"][class*="-ground-pane"] {
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+  /* Firefox 3.5+ */
+  -webkit-filter: grayscale(100%);
+  /* Chrome 19+ & Safari 6+ */
+}

@@ -1,0 +1,47 @@
+.sprite {
+  background-image: url('../images/sprite.png');
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.sprite-icon-24-hours-delivery {
+  width: 75px;
+  height: 70px;
+  background-position: -5px -5px;
+}
+
+.sprite-icon-arrow-down {
+  width: 53px;
+  height: 30px;
+  background-position: -90px -5px;
+}
+
+.sprite-icon-arrow-left {
+  width: 30px;
+  height: 52px;
+  background-position: -90px -45px;
+}
+
+.sprite-icon-arrow-right {
+  width: 30px;
+  height: 52px;
+  background-position: -130px -45px;
+}
+
+.sprite-icon-badge-with-a-star {
+  width: 63px;
+  height: 87px;
+  background-position: -170px -5px;
+}
+
+.sprite-icon-close {
+  width: 14px;
+  height: 14px;
+  background-position: -5px -102px;
+}
+
+.sprite-icon-like {
+  width: 67px;
+  height: 76px;
+  background-position: -170px -102px;
+}

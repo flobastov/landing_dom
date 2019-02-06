@@ -1,0 +1,11 @@
+{% block content %}
+    <div class="b-error-page">
+        <h1 class="b-error-page__title">Упс, что то пошло не так и страница не нашлась</h1>
+        <div class="b-error-page__description">
+            <p>Проверьте нет ли ошибки в пути и попробуйте еще раз</p>
+        </div>
+        <div class="b-error-page__link">
+            <a class="b-btn b-btn--border" href="{{ path('homepage') }}">На главную</a>
+        </div>
+    </div>
+{% endblock %}

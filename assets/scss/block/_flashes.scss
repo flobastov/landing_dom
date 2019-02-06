@@ -1,0 +1,31 @@
+.b-flashes {
+  &__item {
+    padding: .5rem .9rem;
+    border-radius: 5px;
+    background-color: flexy-color(success);
+    text-align: center;
+    margin-bottom: .9rem;
+    text-transform: uppercase;
+    border-top: 2px solid rgba(255,255,255,.5);
+  }
+}
+/* модлка */
+.b-flash-modal {
+  max-width: 626px;
+  &__body {
+    background-color: flexy-color(gray1);
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 12px;
+    min-height: 334px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__btn {
+    max-width: 227px;
+    margin: 0 auto;
+    min-height: 59px;
+  }
+}

@@ -1,0 +1,94 @@
+.b-about {
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @include flexy-breakpoint(large) {
+    &__row {
+      justify-content: space-between;
+    }
+  }
+}
+/* изображение */
+.b-about-picture {
+  display: block;
+  max-width: 486px;
+  margin: 0 auto;
+  &__img {
+    border-radius: 5px;
+    display: block;
+  }
+  @include flexy-breakpoint(large) {
+    margin: 0;
+  }
+}
+/* преимущества */
+.b-about-feature {
+  margin-bottom: 24px;
+  margin-right: 24px;
+  &__title {
+    border-radius: 5px;
+    background-color: flexy-color(green);
+    color: flexy-color(white);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: flexy-size(xlarge);
+    margin-bottom: 23px;
+    line-height: 1;
+    padding: 12px 20px;
+    display: inline-block;
+  }
+  &__desc {
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  @include flexy-breakpoint(large) {
+    margin-right: 12px;
+  }
+}
+/* форма */
+.b-about-form {
+  & .b-form {
+    max-width: 366px;
+    margin-left: auto;
+    color: flexy-color(white);
+    &__title {
+      line-height: 1.2;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    &__desc {
+      text-align: center;
+    }
+    &__elem {
+      margin: 16px 0;
+    }
+    &__policy {
+      color: #a2a2a2;
+      max-width: 298px;
+      margin: 0 auto;
+      & a {
+        color: #a2a2a2;
+      }
+    }
+  }
+  & .b-input, & .b-textarea {
+    &__field {
+      text-align: left;
+      color: flexy-color(white);
+    }
+    &__label {
+      text-align: left;
+    }
+  }
+  & .b-textarea {
+    &__field {
+      min-height: 198px;
+    }
+  }
+  & .b-input-submit {
+    &__field {
+      font-size: flexy-size(small);
+    }
+  }
+}

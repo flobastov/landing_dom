@@ -1,0 +1,8 @@
+<h2>Новая заявка с формы: {{ form.form_name }}</h2>
+<p><b>Телефон:</b> {{ form.phone }}</p>
+{% if form.email is defined and form.email != '' %}
+    <p><b>E-mail:</b> {{ form.email }}</p>
+{% endif %}
+{% if form.message is defined and form.message != '' %}
+    <p><b>Вопрос:</b> {{ form.message }}</p>
+{% endif %}

@@ -1,0 +1,14 @@
+swiftmailer:
+    transport: smtp
+    username: idomkarkas@yandex.ru
+    password: 213$4b*xZb*2vd
+    host: smtp.yandex.ru
+    port: 465
+    encryption: ssl
+    auth-mode: login
+    spool: { type: 'memory' }
+    stream_options:
+        ssl:
+            allow_self_signed: true
+            verify_peer: false
+            verify_peer_name: false

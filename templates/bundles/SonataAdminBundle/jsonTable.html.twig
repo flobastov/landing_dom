@@ -1,0 +1,19 @@
+{% extends 'SonataAdminBundle:CRUD:base_show_field.html.twig' %}
+
+{% set fields = {
+    'form_name': 'Форма',
+    'phone': 'Телефон',
+    'email': 'E-mail',
+    'message': 'Вопрос',
+} %}
+
+{% block field %}
+    {% for key, v in value %}
+        <div>
+            <h5><strong>{{ fields[key] }}</strong></h5>
+            <p>
+                {{ v }}
+            </p>
+        </div>
+    {% endfor %}
+{% endblock %}
